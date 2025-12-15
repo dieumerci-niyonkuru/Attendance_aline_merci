@@ -20,9 +20,6 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -35,22 +32,28 @@
         </div>
     </footer>
     
-    <!-- JavaScript for interactive elements -->
     <script>
-    // Mobile menu toggle
+    // Auto-hide alerts after 5 seconds
     document.addEventListener('DOMContentLoaded', function() {
-        // Add any JavaScript functionality here
-        console.log('Attendance System Loaded');
-        
-        // Auto-hide success/error messages after 5 seconds
         setTimeout(function() {
-            const messages = document.querySelectorAll('.bg-green-100, .bg-red-100, .bg-yellow-100');
-            messages.forEach(function(msg) {
-                msg.style.transition = 'opacity 0.5s';
-                msg.style.opacity = '0';
-                setTimeout(() => msg.remove(), 500);
+            const alerts = document.querySelectorAll('.bg-red-100, .bg-green-100, .bg-yellow-100');
+            alerts.forEach(function(alert) {
+                alert.style.transition = 'opacity 0.5s';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
             });
         }, 5000);
+        
+        // Add hover effects to cards
+        const cards = document.querySelectorAll('.stat-card, .hover-lift');
+        cards.forEach(function(card) {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     });
     </script>
 </body>

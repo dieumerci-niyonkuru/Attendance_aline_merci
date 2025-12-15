@@ -1,6 +1,7 @@
 <?php
+// Site constants
 define('SITE_NAME', 'Student Attendance System');
-define('SITE_URL', 'http://localhost/attendance-system/');
+define('BASE_URL', 'http://localhost/student-attendance-system');
 
 // User roles
 define('ROLE_STUDENT', 'student');

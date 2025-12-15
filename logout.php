@@ -1,5 +1,9 @@
 <?php
+// logout.php - Logout script in root directory
 session_start();
+
+// Include bootstrap
+require_once 'bootstrap.php';
 
 // Unset all session variables
 $_SESSION = array();
@@ -7,7 +11,16 @@ $_SESSION = array();
 // Destroy the session
 session_destroy();
 
+// Clear session cookie
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+}
+
 // Redirect to login page
-header("Location: login.php");
+header("Location: /student-attendance-system/login.php");
 exit();
 ?>
